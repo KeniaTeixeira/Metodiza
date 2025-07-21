@@ -4,6 +4,7 @@ import Timer from "./timer";
 import Image from "next/image";
 import Task from "./task";
 import TaskItem from "./taskItem";
+import ResumoFinal from "./resumo";
 
 export default function Page() {
     const [mode, setMode] = useState<"pomodoro" | "short" | "long">("pomodoro");
@@ -119,6 +120,13 @@ export default function Page() {
                 isSelected = {selecionaTarefa === index}
             />
             ))}
+
+            {/**Resumo dos tempos */}
+            <section className="mt-10">
+                <h2 className="text-lg text-gray-300 mb-2">Resumo</h2>
+                <ResumoFinal tasks={tasks} tempoPomodoro={pomodoroTime} />
+            </section>
+
 
             {/*Pra confirmar o delete */}
             {taskToDelete !== null && (
