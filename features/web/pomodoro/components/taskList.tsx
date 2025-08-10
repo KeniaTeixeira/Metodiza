@@ -18,7 +18,6 @@ function Task({
     selected?: boolean;
 }) {
     const selectTask = useTimerStore((s) => s.setSelectedTask);
-    const selectedTask = useTimerStore((s) => s.selectedTask);
     const deleteTask = useTimerStore((s) => s.deleteTask);
 
     return (
@@ -27,7 +26,7 @@ function Task({
                 "bg-border flex cursor-pointer rounded-md brightness-75",
                 selected && "brightness-100",
             )}
-            onClick={() => selectTask(name !== selectedTask ? name : null)}
+            onClick={() => selectTask(!selected ? name : null)}
         >
             <div
                 className={cn(
