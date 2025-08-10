@@ -105,6 +105,7 @@ const useTimerStore = create<TimerStore>((set, get) => {
 
         setCurrentState(state) {
             set({ currentState: state });
+            get().pauseTimer();
             resetTimeForState(state);
         },
 
